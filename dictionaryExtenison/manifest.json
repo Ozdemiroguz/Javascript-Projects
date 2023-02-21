@@ -1,0 +1,22 @@
+{
+    "name": "Dictionary",
+    "description": "Dictionary",
+    "version": "0.1.0",
+    "manifest_version": 3,
+    "icons": {
+        "128": "dictionary30.png"
+    },
+    "action": {
+        "default_popup": "dictionaryExtension.html",
+        "default_icon": "dictionary128.png"
+    },
+    "permissions": [
+        "storage",
+        "activeTab",
+        "scripting",
+        "tabs"
+    ],
+    "host_permissions": [
+        "https://www.google.com/*"
+    ]
+}
