@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width , initial-scale=1.0">
+    <title>Fetch api</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+        integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        body {
+            background-image: url("images/color-interrogation-symbols.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 50px;
+        }
+
+        a,
+        button {
+            border: solid;
+            color: white;
+            background-color: transparent;
+            padding: 8px 16px;
+            border-radius: 5px;
+            transition: transform 0.3s;
+            cursor: pointer;
+            box-shadow: -3px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        a:hover,
+        button:hover {
+            opacity: 0.7;
+            text-decoration: none;
+            color: white;
+
+        }
+
+        #choices a {
+            padding: 16px 16px;
+
+        }
+
+        a:active,
+        button:active {
+            opacity: 0.5;
+            box-shadow: -3px 2px rgba(0, 0, 0, 0.2);
+            transform: translateY(4px);
+
+        }
+
+        #flag:hover>#body {
+            /*background-image: url("flag.jpg");*/
+            width: 1000px;
+
+        }
+    </style>
+</head>
+
+<body id="boddy">
+    <div
+        style=" margin-top:3vh; text-align: center; width: 200px; color: white; background: rgba(235, 72, 118, 0.42); border-radius: 16px; box-shadow: 0 4px 30px rgba(0, 0, 0, 1);backdrop-filter: blur(15px);-webkit-backdrop-filter: blur(15px);">
+        <h1>Quiz</h1>
+    </div>
+    <div class="container" id="cards"
+        style=" align-items: center; justify-content: center; padding: 20px 10px -10px 3%;margin: 0; color:  white; width: 100%;">
+        <div id="flag"
+            style="height: 500px; max-width: 21rem;   display: inline-block; padding: 20px 30px; margin:0px 15px;  
+           background: rgba(244, 181, 63, 0.42); border-radius: 16px; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);backdrop-filter: blur(15px);-webkit-backdrop-filter: blur(15px);">
+            <div style="align-items: center; display: flex;flex-direction: column;">
+                <img style=" width: 140px; height: 140px; ;border-radius:50%; border:solid;margin-bottom: 20px;"
+                    src="images/flag.jpg">
+            </div>
+            <div>
+                <h1 style="font-weight: bolder; ">Country Flag Quiz</h1>
+                <div style="width: 16rem; height: 100px; ">Do you want to test how familiar you
+                    are with the flags of 169 different
+                    countries?
+                </div>
+                <div
+                    style="align-items: center; display: flex; flex-direction: row; justify-content: space-evenly; margin-top: 20px;">
+                    <a type="submit" id="flagStart">Start</a>
+                    <a type="button" href="flag.html">FlagLibrary</a>
+
+                </div>
+            </div>
+        </div>
+        <div id="teamLogo"
+            style="height: 500px; max-width: 21rem;   display: inline-block; padding: 20px 30px; margin:0px 15px; background: rgba(235, 72, 118, 0.42); border-radius: 16px; box-shadow: 0 4px 30px rgba(0, 0, 0, 1);backdrop-filter: blur(15px);-webkit-backdrop-filter: blur(15px);">
+            <div style="align-items: center; display: flex;flex-direction: column;">
+                <img style=" width: 140px;height: 140px; ;border-radius:50%;border:solid; margin-bottom: 20px; "
+                    src="images/teamLogo.jpg">
+            </div>
+            <div>
+                <h1 style="font-weight: bolder; ">Footbal Team Logo Quiz</h1>
+                <div style="width: 16rem; height: 100px;  ">Do you want to test how familiar you
+                    are with
+                    the flags of 169 different
+                    countries and the flags of the countries?</div>
+                <div
+                    style="align-items: center; display: flex; flex-direction: row; justify-content: space-evenly; margin-top: 20px;">
+                    <a type="submit">Start</a>
+                    <a type="button">Football Logo Library</a>
+
+                </div>
+            </div>
+        </div>
+        <div id="nbaLogo"
+            style="height: 500px; max-width: 21rem;  display: inline-block; padding: 20px 30px; margin:0px 15px;background: rgba(123, 94, 199, 0.42); border-radius: 16px; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);backdrop-filter: blur(15px);-webkit-backdrop-filter: blur(15px);">
+            <div style="align-items: center; display: flex;flex-direction: column;">
+                <img style=" width: 140px;height: 140px; ;border-radius:50%; border:solid;margin-bottom: 20px;"
+                    src="images/nba.jpg">
+            </div>
+            <div>
+                <h1 style="font-weight: bolder; ">Nba Team Logo Quiz</h1>
+                <div style="width: 16rem; height: 100px; ">Do you want to test how familiar you
+                    are with
+                    the flags of 169 different
+                    countries and the flags of the countries?</div>
+                <div
+                    style="align-items: center; display: flex; flex-direction: row; justify-content: space-evenly; margin-top: 20px;">
+                    <a type="button">Start</a>
+                    <a type="button">Nba Logo Library</a>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="container" id="startingScreen"
+        style=" height: 80vh; display: flex; justify-content: center; flex-direction: column; align-items: center; background: rgba(244, 181, 63, 0.42); border-radius: 16px; box-shadow: 0 4px 30px rgba(0, 0, 0, 1);backdrop-filter: blur(15px);-webkit-backdrop-filter: blur(15px); display: none;">
+
+        <div id="gameStarting" style="text-align: center;">
+            <h2>Game Starting... </h2>
+            <h1>5</h1>
+        </div>
+
+        <div class="container" id="quizScreen"
+            style=" height: 80vh; max-width: 90%; color: white;   display: none; flex-direction: column; align-items: center; padding: 80px 15px 0 0; margin:0px 15px 20px 15px;">
+            <div id="timer" style="color: white; display: flex; position: absolute; left: 20px; top: 15px;">
+                <i class='bx bxs-hourglass-bottom' style="font-size: 36px;"></i>
+                <p style="font-size: 24px; ">0:59</p>
+            </div>
+            <h2>Question 1</h2>
+            <img src="https://apiv2.allsportsapi.com/logo/logo_country/10_albania.png" id="quizImage"
+                style="border: solid; color: white; width: 200px; height: 200px; border-radius: 50%;">
+
+            <div id="choices" style="  margin: 50px; width: 80%;  display: grid;
+        grid-template-columns: 50% 50% ; gap: 20px;">
+                <button>choice</button>
+                <button>choice</button>
+                <button>choice</button>
+                <button>choice</button>
+
+
+            </div>
+            <a id="next/new" style=" visibility: hidden; position: absolute; top: 15px; right: 30px;">Next</a>
+
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+
+
+</html>
