@@ -20,7 +20,8 @@
         }
 
         a,
-        button {
+        button,
+        .start {
             border: solid;
             color: white;
             background-color: transparent;
@@ -67,7 +68,7 @@
     </div>
     <div class="container" id="cards"
         style=" align-items: center; justify-content: center; padding: 20px 10px -10px 3%;margin: 0; color:  white; width: 100%;">
-        <div id="flag"
+        <div
             style="height: 500px; max-width: 21rem;   display: inline-block; padding: 20px 30px; margin:0px 15px;  
            background: rgba(244, 181, 63, 0.42); border-radius: 16px; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);backdrop-filter: blur(15px);-webkit-backdrop-filter: blur(15px);">
             <div style="align-items: center; display: flex;flex-direction: column;">
@@ -82,8 +83,8 @@
                 </div>
                 <div
                     style="align-items: center; display: flex; flex-direction: row; justify-content: space-evenly; margin-top: 20px;">
-                    <a type="submit" id="flagStart">Start</a>
-                    <a type="button" href="flag.html">FlagLibrary</a>
+                    <a type="submit" id="Flag">Start</a>
+                    <a type=" button" href="flag.html">FlagLibrary</a>
 
                 </div>
             </div>
@@ -131,10 +132,27 @@
 
     </div>
     <div class="container" id="startingScreen"
-        style=" height: 80vh; display: flex; justify-content: center; flex-direction: column; align-items: center; background: rgba(244, 181, 63, 0.42); border-radius: 16px; box-shadow: 0 4px 30px rgba(0, 0, 0, 1);backdrop-filter: blur(15px);-webkit-backdrop-filter: blur(15px); display: none;">
+        style=" height: 80vh; display: none; justify-content: center; flex-direction: column; align-items: center; background: rgba(244, 181, 63, 0.42); border-radius: 16px; box-shadow: 0 4px 30px rgba(0, 0, 0, 1);backdrop-filter: blur(15px);-webkit-backdrop-filter: blur(15px); ">
 
-        <div id="gameStarting" style="text-align: center;">
-            <h2>Game Starting... </h2>
+        <form id="start-form" style="text-align: center; color: white;">
+            <img style=" width: 140px; height: 140px; ;border-radius:50%; border:solid;margin-bottom: 20px;"
+                src="images/flag.jpg">
+            <p>(If you start the game without entering your name, your score will not be saved!!!)</p>
+            <div class="form-group">
+
+                <div class="input-group">
+                    <span class="input-group-addon "><i class='bx bxs-user-circle'></i></span>
+                    <input type="text" class="form-control" id="name" placeholder="Enter your name">
+                </div>
+            </div>
+
+            <div class=" form-group">
+                <input type="submit" value="Start" class="start">
+            </div>
+        </form>
+        <div id="gameStarting"
+            style="text-align: center; display: flex; flex-direction: column; visibility: hidden; color: white;">
+            <h1>Game Starting...</h1>
             <h1>5</h1>
         </div>
 
@@ -142,13 +160,13 @@
             style=" height: 80vh; max-width: 90%; color: white;   display: none; flex-direction: column; align-items: center; padding: 80px 15px 0 0; margin:0px 15px 20px 15px;">
             <div id="timer" style="color: white; display: flex; position: absolute; left: 20px; top: 15px;">
                 <i class='bx bxs-hourglass-bottom' style="font-size: 36px;"></i>
-                <p style="font-size: 24px; ">0:59</p>
+                <p style="font-size: 24px; ">0:15</p>
             </div>
-            <h2>Question 1</h2>
+            <h2 id="question">Question 1</h2>
             <img src="https://apiv2.allsportsapi.com/logo/logo_country/10_albania.png" id="quizImage"
                 style="border: solid; color: white; width: 200px; height: 200px; border-radius: 50%;">
 
-            <div id="choices" style="  margin: 50px; width: 80%;  display: grid;
+            <div id="choices" style="  margin: 50px; width: 90%;  display: grid;
         grid-template-columns: 50% 50% ; gap: 20px;">
                 <button>choice</button>
                 <button>choice</button>

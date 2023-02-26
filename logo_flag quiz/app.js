@@ -6,13 +6,14 @@ let gameStarting = document.getElementById("gameStarting");
 let quizScreen = document.getElementById("quizScreen");
 let quizScstartingScreenreen = document.getElementById("startingScreen");
 let choices = document.getElementById("choices");
-document.getElementById("flagStart").addEventListener("click", start);
+let startForm = document.getElementById("start-form")
+document.getElementById("Flag").addEventListener("click", playQuiz);
 next_new.addEventListener("click", setChoices);
-
+startForm.addEventListener("submit", start);
 let time = 11;
 
 let datas;
-let score = 0;
+let player = { name: "", score: 0, quiz: "" }
 let correctAnswer;
 let correctChoice;
 const startingMinutes = 1;
@@ -42,15 +43,34 @@ function startCountdown() {
     gameStarting.children[1].innerText = time;
     time--;
 }
-
-function start(e) {
-    console.log(e.target.innerText)
+function playQuiz(e) {
     cards.style.display = "none";
-    startingScreen.style.display = "flex";
-    time = 0;
-    myInterval = setInterval(startCountdown, 1000)
-    getJSONFile();
-
+    startingScreen.style.display = "flex"
+    player.quiz = e.target.id;
+}
+function start(e) {
+    player.name = document.getElementById("name").value;
+    if (player.name === "") {
+        if (confirm("You did not write your name. Do you want to continue without writing your name?") == true) {
+            gameStarting.style.visibility = "visible";
+            cards.style.display = "none";
+            startForm.style.display = "none";
+            startingScreen.style.display = "flex";
+            time = 3;
+            myInterval = setInterval(startCountdown, 1000)
+            getJSONFile();
+        }
+    }
+    else {
+        gameStarting.style.visibility = "visible";
+        cards.style.display = "none";
+        startForm.style.display = "none";
+        startingScreen.style.display = "flex";
+        time = 3;
+        myInterval = setInterval(startCountdown, 1000)
+        getJSONFile();
+    }
+    e.preventDefault();
 }
 function startQuiz() {
     gameStarting.style.display = "none";
@@ -65,10 +85,11 @@ function startQuiz() {
 }
 function setChoices() {
     time = 15;
+    myInterval = setInterval(quizCountdown, 1000, timer)
+    document.getElementById("question").innerText = `Question ${player.score + 1}`
     timer.style.color = "white"
     next_new.style.visibility = "hidden"
 
-    myInterval = setInterval(quizCountdown, 1000, timer)
     correctChoice = Math.floor(Math.random() * 4);
     let indexs = [];
     while (indexs.length < 4) {
@@ -88,8 +109,7 @@ function setChoices() {
 
         }
         else {
-            console.log(index);
-            console.log(datas[index]);
+
             choices.children[i].innerHTML = datas[index].country_name;
             choices.children[i].disabled = false
             choices.children[i].style.backgroundColor = "transparent"
@@ -117,6 +137,7 @@ function checkAnswer(e) {
     }
     if (e.target.innerText == correctAnswer.country_name) {
         e.target.style.backgroundColor = "green";
+        player.score++;
         clearInterval(myInterval)
         next_new.style.visibility = "visible"
 
