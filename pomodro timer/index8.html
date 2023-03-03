@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+        integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="timer.css">
+    <title>Pomodro Timer</title>
+</head>
+
+<body class="bg-dark">
+    <div id="cf">
+        <div class="main">
+            <div class="setScreen">
+                <div class="timeTypes" style="display: flex; width: 100%; 
+                justify-content: space-evenly; font-size: 20px; padding: 20px 0;">
+                    <a class="timeType">
+                        <p>Pomodro</p> <br>
+                        <span style="width: 100%;"></span>
+                    </a>
+                    <a class="timeType">
+                        <p>Short Break</p> <br>
+                        <span class="underline"></span>
+                    </a>
+                    <a class="timeType">
+                        <p>Long Break</p> <br>
+                        <span class="underline"></span>
+                    </a>
+                    <a class="timeType">
+                        <p><i class='bx bxs-cog'></i> Settings</p> <br>
+                        <span class=" underline"></span>
+                    </a>
+
+
+                </div>
+                <div>
+                    <h1 style="font-size: 120px; font-weight: bolder; padding: 30px 0;">30:00</h1>
+                </div>
+                <div
+                    style="width: 40%;  display: flex; align-items: center; justify-content: center; padding: 20px 0px;">
+                    <a id="start"
+                        style="border: solid; padding: 5px 15px; border-radius: 8px;  color: white; font-size: 24px;">Start</a>
+                    <div style="display: flex; align-items: center; ">
+                        <a style=" font-size: 64px;" class="bx bx-play"></a>
+                        <a style="font-size: 64px;" class="bx bx-pause"></a>
+                        <a style="font-size: 48px; padding: 6px;" class="bx bx-revision"></a>
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="taskQuetoScreen">
+                <div class="timeTypes" style="display: flex; width: 100%; 
+                justify-content: space-evenly; font-size: 20px; padding: 20px 0;">
+                    <a class="timeType">
+                        <p>Task List</p> <br>
+                        <span style="width: 100%;"></span>
+                    </a>
+                    <a class="timeType">
+                        <p>Motivation Queto</p> <br>
+                        <span></span>
+                    </a>
+                </div>
+                <div id="taskList" style="display: none; width: 100%; ; flex-direction: column; align-items: center;">
+                    <form id="taskForm">
+                        <div class="input-group">
+                            <input type="text" id="taskInput"
+                                style=" border-top-right-radius: 0; border-bottom-right-radius: 0;"
+                                placeholder="Write the task" aria-label="" aria-describedby="basic-addon1">
+                            <div class="input-group-append">
+                                <input type="submit" value="Add Task" style="  border-left:
+                                  none;border-top-left-radius:0;border-bottom-left-radius: 0;"></input>
+                            </div>
+                        </div>
+
+                    </form>
+                    <div style=" margin-top: 30px; width: 80%; height: 30px; ">
+                        <ul id="tasks" style="  height:28vh; overflow: auto; ">
+                            <li
+                                style="display: flex; justify-content: space-between; border-bottom: solid; padding: 5px 10px;">
+                                Start begin!!! <div><a class='bx bxs-check-circle'></a> <a class='bx bxs-trash-alt'></a>
+                                </div>
+                            </li>
+                            <li
+                                style="display: flex; justify-content: space-between; border-bottom: solid; padding: 5px 10px;">
+                                Start begin!!! <div><a class='bx bxs-check-circle'></a> <a class='bx bxs-trash-alt'></a>
+                                </div>
+                            </li>
+                            <li
+                                style="display: flex; justify-content: space-between; border-bottom: solid; padding: 5px 10px;">
+                                Start begin!!! <div><a class='bx bxs-check-circle'></a> <a class='bx bxs-trash-alt'></a>
+                                </div>
+                            </li>
+                            <li
+                                style="display: flex; justify-content: space-between; border-bottom: solid; padding: 5px 10px;">
+                                Start begin!!! <div><a class='bx bxs-check-circle'></a> <a class='bx bxs-trash-alt'></a>
+                                </div>
+                            </li>
+                            <li
+                                style="display: flex; justify-content: space-between; border-bottom: solid; padding: 5px 10px;">
+                                Start begin!!! <div><a class='bx bxs-check-circle'></a> <a class='bx bxs-trash-alt'></a>
+                                </div>
+                            </li>
+                            <li
+                                style="display: flex; justify-content: space-between; border-bottom: solid; padding: 5px 10px;">
+                                Start begin!!! <div><a class='bx bxs-check-circle'></a> <a class='bx bxs-trash-alt'></a>
+                                </div>
+                            </li>
+
+
+
+
+                        </ul>
+                    </div>
+
+                </div>
+                <div id="motivationQueto"
+                    style="height: 30vh;  display: flex; align-items: center; justify-content: center;">
+                    <h1 id="queto" class="ml3" style="font-size: 48px;"> Finish What
+                        You Start</h1>
+
+
+                </div>
+                <div id="spotify">
+                    <iframe style="border-radius:12px"
+                        src="https://open.spotify.com/embed/playlist/37i9dQZF1DWZeKCadgRdKQ?utm_source=generator&theme=0"
+                        width="100%" height="352" frameBorder="0" allowfullscreen=""
+                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                        loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+        <img class=" zero" src="images/wallpaperflare.com_wallpaper.jpg" />
+        <img class="one" src="images/wallpaperflare.com_wallpaper (1).jpg" />
+        <img class="two" src="images/wallpaperflare.com_wallpaper (2).jpg" />
+        <img class="there" src="images/wallpaperflare.com_wallpaper (3).jpg" />
+
+    </div>
+
+    <input type="text " class="taskInput">
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"
+        integrity="sha512-Pa4Jto+LuCGBHy2/POQEbTh0reuoiEXQWXGn8S7aRlhcwpVkO8+4uoZVSOqUjdCsE+77oygfu2Tl+7qGHGIWsw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
+        integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+        integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js">
+    </script>
+    <script src="timer.js"></script>
+</body>
+
+</html>
