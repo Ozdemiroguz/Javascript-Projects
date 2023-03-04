@@ -33,26 +33,54 @@
                         <span class="underline"></span>
                     </a>
                     <a class="timeType">
-                        <p><i class='bx bxs-cog'></i> Settings</p> <br>
+                        <p><i class='bx bxs-cog'></i> Settings</p>
                         <span class=" underline"></span>
                     </a>
 
 
                 </div>
-                <div>
-                    <h1 style="font-size: 120px; font-weight: bolder; padding: 30px 0;">30:00</h1>
-                </div>
-                <div
-                    style="width: 40%;  display: flex; align-items: center; justify-content: center; padding: 20px 0px;">
-                    <a id="start"
-                        style="border: solid; padding: 5px 15px; border-radius: 8px;  color: white; font-size: 24px;">Start</a>
-                    <div style="display: flex; align-items: center; ">
-                        <a style=" font-size: 64px;" class="bx bx-play"></a>
-                        <a style="font-size: 64px;" class="bx bx-pause"></a>
-                        <a style="font-size: 48px; padding: 6px;" class="bx bx-revision"></a>
+                <div id="timer" style="display: none; flex-direction: column; align-items: center;">
+                    <div>
+                        <h1 style=" font-size: 120px; font-weight: bolder; padding: 30px 0;">30:00</h1>
                     </div>
+                    <div
+                        style="width: 40%;  display: flex; align-items: center; justify-content: center; padding: 20px 0px;">
+                        <a id="start"
+                            style="border: solid; padding: 5px 15px; border-radius: 8px;  color: white; font-size: 24px;">Start</a>
+                        <div style="display: flex; align-items: center; ">
+                            <a style=" font-size: 64px;" class="bx bx-play"></a>
+                            <a style="font-size: 64px;" class="bx bx-pause"></a>
+                            <a style="font-size: 48px; padding: 6px;" class="bx bx-revision"></a>
+                        </div>
 
 
+                    </div>
+                </div>
+                <div id="settings">
+                    <div style="border-radius: 4px; border: solid;padding: 5px 0 5px 10px; ">
+                        <span>
+                            Pomodoro Minutes:
+                        </span>
+                        <input type="number" value="30"
+                            style="width: 50px; background-color: transparent; border: none; color: white;">
+
+                    </div>
+                    <div style="border-radius: 4px; border: solid;padding: 5px 0 5px 10px; ">
+                        <span>
+                            Short Break Minutes:
+                        </span>
+                        <input type="number" value="5"
+                            style="width: 50px; background-color: transparent; border: none; color: white;">
+
+                    </div>
+                    <div style="border-radius: 4px; border: solid;padding: 5px 0 5px 10px; ">
+                        <span>
+                            Long Break Minutes:
+                        </span>
+                        <input type="number" value="10"
+                            style="width: 50px; background-color: transparent; border: none; color: white;">
+
+                    </div>
                 </div>
             </div>
             <div class="taskQuetoScreen">
@@ -64,6 +92,10 @@
                     </a>
                     <a class="timeType">
                         <p>Motivation Queto</p> <br>
+                        <span></span>
+                    </a>
+                    <a class="timeType">
+                        <p><i style="padding-right: 5px;" class='bx bxl-spotify'></i>Spotify</p> <br>
                         <span></span>
                     </a>
                 </div>
@@ -121,18 +153,20 @@
 
                 </div>
                 <div id="motivationQueto"
-                    style="height: 30vh;  display: flex; align-items: center; justify-content: center;">
+                    style="height: 30vh;  display: none; align-items: center; justify-content: center;">
                     <h1 id="queto" class="ml3" style="font-size: 48px;"> Finish What
                         You Start</h1>
 
 
                 </div>
-                <div id="spotify">
-                    <iframe style="border-radius:12px"
-                        src="https://open.spotify.com/embed/playlist/37i9dQZF1DWZeKCadgRdKQ?utm_source=generator&theme=0"
-                        width="100%" height="352" frameBorder="0" allowfullscreen=""
+                <div id="spotify" style="  width: 100%;   display: flex; flex-direction: column; align-items: center;">
+
+                    <iframe style="border-radius:12px; "
+                        src="https://open.spotify.com/embed/playlist/37i9dQZF1DX720GaRlTmKS?utm_source=generator&theme=0"
+                        width="90%" height="352" frameBorder="0" allowfullscreen=""
                         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                         loading="lazy"></iframe>
+
                 </div>
             </div>
         </div>
