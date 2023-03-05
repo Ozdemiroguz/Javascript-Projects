@@ -56,34 +56,62 @@
 
                     </div>
                 </div>
-                <div id="settings">
-                    <div style="border-radius: 4px; border: solid;padding: 5px 0 5px 10px; ">
-                        <span>
-                            Pomodoro Minutes:
-                        </span>
-                        <input type="number" value="30"
-                            style="width: 50px; background-color: transparent; border: none; color: white;">
+                <div style="width: 95%;" id="settings">
+                    <div style="display: flex; width: 100%; ">
+
+                        <div style="flex: 3; padding: 10px;">
+                            <h3>Timer</h3>
+                            <div style=" border-radius: 4px; border: solid;padding: 5px 0 5px 10px; ">
+                                <span>
+                                    Pomodoro Minutes:
+                                </span>
+                                <input type="number" value="30"
+                                    style="width: 50px; background-color: transparent; border: none; color: white;">
+
+                            </div>
+                            <div style=" margin-top: 10px; border-radius: 4px; border: solid;padding: 5px 0 5px 10px; ">
+                                <span>
+                                    Short Break Minutes:
+                                </span>
+                                <input type="number" value="5"
+                                    style="width: 50px; background-color: transparent; border: none; color: white;">
+
+                            </div>
+                            <div style=" margin-top: 10px;border-radius: 4px; border: solid;padding: 5px 0 5px 10px; ">
+                                <span>
+                                    Long Break Minutes:
+                                </span>
+                                <input type="number" value="10"
+                                    style="  width: 50px; background-color: transparent; border: none; color: white;">
+
+                            </div>
+                        </div>
+                        <div style="  padding: 10px 10px 0 20px ;">
+                            <h3>Sounds</h3>
+                            <div style="margin-bottom:10px; display: flex; align-items: center;">
+                                <p style="margin:0 20px 3px 0;">Alert Volume</p>
+                                <i class='bx bxs-volume-low'></i>
+                                <input id="volumeInput" class="volume" type="range">
+                                <i class='bx bxs-volume-full'></i>
+                            </div>
+                            <div>
+                                <label for="cars">
+                                    Select alert sound:</label>
+
+                                <select id="alerts">
+                                    <option value="volvo">Alarm Kebakaran</option>
+                                    <option value="saab">Birds Alarm</option>
+                                    <option value="mercedes">Good Morning Bell </option>
+                                    <option value="audi">Morning Flower </option>
+                                </select>
+                            </div>
+                        </div>
 
                     </div>
-                    <div style="border-radius: 4px; border: solid;padding: 5px 0 5px 10px; ">
-                        <span>
-                            Short Break Minutes:
-                        </span>
-                        <input type="number" value="5"
-                            style="width: 50px; background-color: transparent; border: none; color: white;">
 
-                    </div>
-                    <div style="border-radius: 4px; border: solid;padding: 5px 0 5px 10px; ">
-                        <span>
-                            Long Break Minutes:
-                        </span>
-                        <input type="number" value="10"
-                            style="width: 50px; background-color: transparent; border: none; color: white;">
-
-                    </div>
                 </div>
             </div>
-            <div class="taskQuetoScreen">
+            <div class=" taskQuetoScreen">
                 <div class="timeTypes" style="display: flex; width: 100%; 
                 justify-content: space-evenly; font-size: 20px; padding: 20px 0;">
                     <a class="timeType">
