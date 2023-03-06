@@ -191,7 +191,7 @@ a {
     /* Override default CSS styles */
     appearance: none;
     width: 45%;
-    height: 14px;
+    height: 12px;
     align-items: center;
     border-radius: 20px;
     margin: 0 5px;
@@ -237,6 +237,75 @@ select {
     background-color: #454545;
     width: 50%;
     border-radius: 4px;
+}
+
+input[type=checkbox] {
+    height: 0;
+    width: 0;
+    visibility: hidden;
+}
+
+.finish label {
+    cursor: pointer;
+    text-indent: -9999px;
+    width: 50px;
+    height: 25px;
+    background: #454545;
+    display: block;
+    border-radius: 100px;
+    position: relative;
+}
+
+
+.finish label:after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 15px;
+    height: 15px;
+    background: #ffffff;
+    border-radius: 90px;
+    transition: 0.3s;
+}
+
+input:checked+label {
+    background: #ffffff;
+}
+
+input:checked+label:after {
+    background-color: #454545;
+
+    left: calc(100% - 5px);
+    transform: translateX(-100%);
+}
+
+label:active:after {
+    width: 20px;
+}
+
+
+.auto label {
+    cursor: pointer;
+    text-indent: -9999px;
+    width: 50px;
+    height: 25px;
+    background: #454545;
+    display: block;
+    border-radius: 100px;
+    position: relative;
+}
+
+.auto label:after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 15px;
+    height: 15px;
+    background: #ffffff;
+    border-radius: 90px;
+    transition: 0.3s;
 }
 
 
