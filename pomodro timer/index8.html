@@ -15,201 +15,229 @@
 </head>
 
 <body class="bg-dark">
-    <div id="cf">
-        <div class="main">
-            <div class="setScreen">
-                <div class="timeTypes" style="display: flex; width: 100%; 
+    <div class="main" style="display: flex; align-items: center;">
+        <div class="setScreen">
+            <div id="timerMenu" class="timeTypes" style="display: flex; width: 100%; 
                 justify-content: space-evenly; font-size: 20px; padding: 20px 0;">
-                    <a class="timeType">
-                        <p>Pomodro</p> <br>
-                        <span style="width: 100%;"></span>
-                    </a>
-                    <a class="timeType">
-                        <p>Short Break</p> <br>
-                        <span class="underline"></span>
-                    </a>
-                    <a class="timeType">
-                        <p>Long Break</p> <br>
-                        <span class="underline"></span>
-                    </a>
-                    <a class="timeType">
-                        <p><i class='bx bxs-cog'></i> Settings</p>
-                        <span class=" underline"></span>
-                    </a>
+                <button onclick="getMenuScreenTime(0)" class="timeType" id="0" style="background-color: transparent;">
+                    <p>Pomodro</p>
+                    <span style="width: 100%;"></span>
+                </button>
+                <button onclick="getMenuScreenTime(1)" type="click" class="timeType" id="0"
+                    style="background-color: transparent;">
+                    <p>Short Break</p>
+                    <span class="underline"></span>
+                </button>
+                <button onclick="getMenuScreenTime(2)" type="click" class="timeType" id="0"
+                    style="background-color: transparent;">
+                    <p>Long Break</p>
+                    <span class="underline"></span>
+                </button>
+                <button onclick="getMenuScreenTime(3)" type="click" class="timeType" id="0"
+                    style="background-color: transparent;">
+                    <p><i class='bx bxs-cog'></i> Settings</p>
+                    <span class=" underline"></span>
+                </button>
 
 
+            </div>
+            <div id="timer" style="display: flex; flex-direction: column; align-items: center;">
+                <div style="text-align: center;">
+                    <h1 id="timeScreen" style=" font-size: 120px; font-weight: bolder; padding: 30px 0 0 0;">30:00
+                    </h1>
+                    <h4 style="display: none;">Just Focus!</h4>
                 </div>
-                <div id="timer" style="display: none; flex-direction: column; align-items: center;">
-                    <div>
-                        <h1 style=" font-size: 120px; font-weight: bolder; padding: 30px 0;">30:00</h1>
+                <div
+                    style="width: 40%;  display: flex; align-items: center; justify-content: center; padding: 20px 0px;">
+                    <a id="startButton"
+                        style="display: flex; border: solid; padding: 5px 15px; border-radius: 8px;  color: white; font-size: 24px;">Start</a>
+                    <div id="pauseReset" style="display: none; align-items: center; ">
+                        <a id="playPause" style="font-size: 64px;" class="bx bx-pause"></a>
+                        <a id="resetButton" style="font-size: 48px; padding: 6px;" class="bx bx-revision"></a>
                     </div>
-                    <div
-                        style="width: 40%;  display: flex; align-items: center; justify-content: center; padding: 20px 0px;">
-                        <a id="start"
-                            style="border: solid; padding: 5px 15px; border-radius: 8px;  color: white; font-size: 24px;">Start</a>
-                        <div style="display: flex; align-items: center; ">
-                            <a style=" font-size: 64px;" class="bx bx-play"></a>
-                            <a style="font-size: 64px;" class="bx bx-pause"></a>
-                            <a style="font-size: 48px; padding: 6px;" class="bx bx-revision"></a>
-                        </div>
 
-
-                    </div>
-                </div>
-                <div style="width: 95%;" id="settings">
-                    <div style="display: flex; width: 100%; ">
-
-                        <div style="flex: 3; padding: 10px;">
-                            <h3>Timer</h3>
-                            <div style=" border-radius: 4px; border: solid;padding: 5px 0 5px 10px; ">
-                                <span>
-                                    Pomodoro Minutes:
-                                </span>
-                                <input type="number" value="30"
-                                    style="width: 50px; background-color: transparent; border: none; color: white;">
-
-                            </div>
-                            <div style=" margin-top: 10px; border-radius: 4px; border: solid;padding: 5px 0 5px 10px; ">
-                                <span>
-                                    Short Break Minutes:
-                                </span>
-                                <input type="number" value="5"
-                                    style="width: 50px; background-color: transparent; border: none; color: white;">
-
-                            </div>
-                            <div style=" margin-top: 10px;border-radius: 4px; border: solid;padding: 5px 0 5px 10px; ">
-                                <span>
-                                    Long Break Minutes:
-                                </span>
-                                <input type="number" value="10"
-                                    style="  width: 50px; background-color: transparent; border: none; color: white;">
-
-                            </div>
-                        </div>
-                        <div style="  padding: 10px 10px 0 20px ;">
-                            <h3>Sounds</h3>
-                            <div style="margin-bottom:10px; display: flex; align-items: center;">
-                                <p style="margin:0 20px 3px 0;">Alert Volume</p>
-                                <i class='bx bxs-volume-low'></i>
-                                <input id="volumeInput" class="volume" type="range">
-                                <i class='bx bxs-volume-full'></i>
-                            </div>
-                            <div>
-                                <label for="cars">
-                                    Select alert sound:</label>
-
-                                <select id="alerts">
-                                    <option value="volvo">Alarm Kebakaran</option>
-                                    <option value="saab">Birds Alarm</option>
-                                    <option value="mercedes">Good Morning Bell </option>
-                                    <option value="audi">Morning Flower </option>
-                                </select>
-                            </div>
-                            <div style="display: flex; align-items: center;" class="finish">
-                                <p style="padding-right: 10px;">Play sound when timer finishes
-                                </p>
-                                <input type="checkbox" id="switch" />
-                                <label for="switch">Toggle</label>
-                            </div>
-                            <div style="display: flex; align-items: center;" class="auto">
-                                <p style="padding-right: 10px;">Auto Start Breaks
-                                </p>
-                                <input type="checkbox" id="switch1" />
-                                <label for="switch1">Toggle</label>
-                            </div>
-                        </div>
-
-                    </div>
 
                 </div>
             </div>
-            <div class=" taskQuetoScreen">
-                <div class="timeTypes" style="display: flex; width: 100%; 
-                justify-content: space-evenly; font-size: 20px; padding: 20px 0;">
-                    <a class="timeType">
-                        <p>Task List</p> <br>
-                        <span style="width: 100%;"></span>
-                    </a>
-                    <a class="timeType">
-                        <p>Motivation Queto</p> <br>
-                        <span></span>
-                    </a>
-                    <a class="timeType">
-                        <p><i style="padding-right: 5px;" class='bx bxl-spotify'></i>Spotify</p> <br>
-                        <span></span>
-                    </a>
-                </div>
-                <div id="taskList" style="display: none; width: 100%; ; flex-direction: column; align-items: center;">
-                    <form id="taskForm">
-                        <div class="input-group">
-                            <input type="text" id="taskInput"
-                                style=" border-top-right-radius: 0; border-bottom-right-radius: 0;"
-                                placeholder="Write the task" aria-label="" aria-describedby="basic-addon1">
-                            <div class="input-group-append">
-                                <input type="submit" value="Add Task" style="  border-left:
-                                  none;border-top-left-radius:0;border-bottom-left-radius: 0;"></input>
-                            </div>
+            <div style="width: 95%; display: none;" id="settings">
+                <div style="display: flex; width: 100%; ; ">
+
+                    <div style="flex: 3; padding: 10px;">
+                        <h3>Timer</h3>
+                        <div style=" border-radius: 4px; border: solid;padding: 5px 0 5px 10px; ">
+                            <span>
+                                Pomodoro Minutes:
+                            </span>
+                            <input id="pomodro" type="number" min="0" max="60" value="30"
+                                style="width: 50px; background-color: transparent; border: none; color: white;">
+
                         </div>
+                        <div style=" margin-top: 10px; border-radius: 4px; border: solid;padding: 5px 0 5px 10px; ">
+                            <span>
+                                Short Break Minutes:
+                            </span>
+                            <input id="short" type="number" min="0" max="60" value="5"
+                                style="width: 50px; background-color: transparent; border: none; color: white;">
 
-                    </form>
-                    <div style=" margin-top: 30px; width: 80%; height: 30px; ">
-                        <ul id="tasks" style="  height:28vh; overflow: auto; ">
-                            <li
-                                style="display: flex; justify-content: space-between; border-bottom: solid; padding: 5px 10px;">
-                                Start begin!!! <div><a class='bx bxs-check-circle'></a> <a class='bx bxs-trash-alt'></a>
-                                </div>
-                            </li>
-                            <li
-                                style="display: flex; justify-content: space-between; border-bottom: solid; padding: 5px 10px;">
-                                Start begin!!! <div><a class='bx bxs-check-circle'></a> <a class='bx bxs-trash-alt'></a>
-                                </div>
-                            </li>
-                            <li
-                                style="display: flex; justify-content: space-between; border-bottom: solid; padding: 5px 10px;">
-                                Start begin!!! <div><a class='bx bxs-check-circle'></a> <a class='bx bxs-trash-alt'></a>
-                                </div>
-                            </li>
-                            <li
-                                style="display: flex; justify-content: space-between; border-bottom: solid; padding: 5px 10px;">
-                                Start begin!!! <div><a class='bx bxs-check-circle'></a> <a class='bx bxs-trash-alt'></a>
-                                </div>
-                            </li>
-                            <li
-                                style="display: flex; justify-content: space-between; border-bottom: solid; padding: 5px 10px;">
-                                Start begin!!! <div><a class='bx bxs-check-circle'></a> <a class='bx bxs-trash-alt'></a>
-                                </div>
-                            </li>
-                            <li
-                                style="display: flex; justify-content: space-between; border-bottom: solid; padding: 5px 10px;">
-                                Start begin!!! <div><a class='bx bxs-check-circle'></a> <a class='bx bxs-trash-alt'></a>
-                                </div>
-                            </li>
+                        </div>
+                        <div style=" margin-top: 10px;border-radius: 4px; border: solid;padding: 5px 0 5px 10px; ">
+                            <span>
+                                Long Break Minutes:
+                            </span>
+                            <input id="long" type="number" min="0" max="60" value="10"
+                                style="  width: 50px; background-color: transparent; border: none; color: white;">
 
+                        </div>
+                    </div>
+                    <div style="  padding: 10px 10px 0 20px ;">
+                        <h3>Sounds</h3>
+                        <div style="margin-bottom:10px; display: flex; align-items: center;">
+                            <p style="margin:0 20px 3px 0;">Alert Volume</p>
+                            <i class='bx bxs-volume-low'></i>
+                            <input id="volumeInput" class="volume" type="range">
+                            <i class='bx bxs-volume-full'></i>
+                        </div>
+                        <div>
+                            <label for="cars">
+                                Select alert sound:</label>
 
-
-
-                        </ul>
+                            <select id="alerts">
+                                <option value="Alarm Kebakaran.mp3">Alarm Kebakaran</option>
+                                <option value="Birds Alarm.mp3">Birds Alarm</option>
+                                <option value="Good Morning Bell.mp3">Good Morning Bell </option>
+                                <option value="Morning Flower">Morning Flower </option>
+                            </select>
+                        </div>
+                        <div style="display: flex; align-items: center;" class="finish">
+                            <p style="padding-right: 10px;">Play sound when timer finishes
+                            </p>
+                            <input type="checkbox" id="switch" />
+                            <label for="switch">Toggle</label>
+                        </div>
+                        <div style="display: flex; align-items: center;" class="auto">
+                            <p style="padding-right: 10px;">Auto Start Breaks
+                            </p>
+                            <input type="checkbox" id="switch1" />
+                            <label for="switch1">Toggle</label>
+                        </div>
                     </div>
 
                 </div>
-                <div id="motivationQueto"
-                    style="height: 30vh;  display: none; align-items: center; justify-content: center;">
-                    <h1 id="queto" class="ml3" style="font-size: 48px;"> Finish What
-                        You Start</h1>
+                <div
+                    style=" padding: 0 10px 20px 10px; width: 100%; margin-top: 90px; display: flex; justify-content: end; ">
 
-
+                    <div
+                        style=" margin: 0; display: flex; align-items: center; justify-content: space-between; width: 150px;">
+                        <a
+                            style="border: solid; padding: 5px 15px; border-radius: 8px; margin-right: 10px;  color: white;   white-space: nowrap;">Reset
+                            All</a>
+                        <a style="border: solid; padding: 5px 15px; border-radius: 8px;  color: white; ">Save</a>
+                    </div>
                 </div>
-                <div id="spotify" style="  width: 100%;   display: flex; flex-direction: column; align-items: center;">
 
-                    <iframe style="border-radius:12px; "
-                        src="https://open.spotify.com/embed/playlist/37i9dQZF1DX720GaRlTmKS?utm_source=generator&theme=0"
-                        width="90%" height="352" frameBorder="0" allowfullscreen=""
-                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                        loading="lazy"></iframe>
-
-                </div>
             </div>
         </div>
+        <div id="taskQueto" class=" taskQuetoScreen">
+            <div id="taskQuetoMenu" style="display: flex; width: 100%; 
+                justify-content: space-evenly; font-size: 20px; padding: 20px 0;">
+                <button onclick="getMenuScreenTaskQueto(0)" class="timeType">
+                    <p>Task List</p>
+                    <span style="width: 100%;"></span>
+                </button>
+                <button onclick="getMenuScreenTaskQueto(1)" class="timeType">
+                    <p>Motivation Queto</p>
+                    <span></span>
+                </button>
+                <button onclick="getMenuScreenTaskQueto(2)" class="timeType">
+                    <p><i style="padding-right: 5px;" class='bx bxl-spotify'></i>Spotify</p>
+                    <span></span>
+                </button>
+            </div>
+            <div id="taskList" style="display: flex; width: 100%; ; flex-direction: column; align-items: center;">
+                <form id="taskForm">
+                    <div class="input-group">
+                        <input type="text" id="taskInput"
+                            style=" border-top-right-radius: 0; border-bottom-right-radius: 0;"
+                            placeholder="Write the task" aria-label="" aria-describedby="basic-addon1">
+                        <div class="input-group-append">
+                            <input type="submit" value="Add Task" style="  border-left:
+                                  none;border-top-left-radius:0;border-bottom-left-radius: 0;"></input>
+                        </div>
+                    </div>
+
+                </form>
+                <div style=" margin-top: 30px; width: 80%; height: 30px; ">
+                    <ul id="tasks" style="  height:28vh; overflow: auto; ">
+                        <li
+                            style="display: flex; justify-content: space-between; border-bottom: solid; padding: 5px 10px;">
+                            Start begin!!! <div><a class='bx bxs-check-circle'></a> <a class='bx bxs-trash-alt'></a>
+                            </div>
+                        </li>
+                        <li
+                            style="display: flex; justify-content: space-between; border-bottom: solid; padding: 5px 10px;">
+                            Start begin!!! <div><a class='bx bxs-check-circle'></a> <a class='bx bxs-trash-alt'></a>
+                            </div>
+                        </li>
+                        <li
+                            style="display: flex; justify-content: space-between; border-bottom: solid; padding: 5px 10px;">
+                            Start begin!!! <div><a class='bx bxs-check-circle'></a> <a class='bx bxs-trash-alt'></a>
+                            </div>
+                        </li>
+                        <li
+                            style="display: flex; justify-content: space-between; border-bottom: solid; padding: 5px 10px;">
+                            Start begin!!! <div><a class='bx bxs-check-circle'></a> <a class='bx bxs-trash-alt'></a>
+                            </div>
+                        </li>
+                        <li
+                            style="display: flex; justify-content: space-between; border-bottom: solid; padding: 5px 10px;">
+                            Start begin!!! <div><a class='bx bxs-check-circle'></a> <a class='bx bxs-trash-alt'></a>
+                            </div>
+                        </li>
+                        <li
+                            style="display: flex; justify-content: space-between; border-bottom: solid; padding: 5px 10px;">
+                            Start begin!!! <div><a class='bx bxs-check-circle'></a> <a class='bx bxs-trash-alt'></a>
+                            </div>
+                        </li>
+
+
+
+
+                    </ul>
+                </div>
+
+            </div>
+            <div id="motivationQueto"
+                style="height: 30vh; flex-direction: column; display: none; align-items: center; justify-content: start;">
+                <form id="quetoInputForm" style="margin-bottom: 50px;">
+                    <div class="input-group">
+                        <input type="text" id="quetoInput"
+                            style=" border-top-right-radius: 0; border-bottom-right-radius: 0;"
+                            placeholder="Write the queto" aria-label="" aria-describedby="basic-addon1">
+                        <div class="input-group-append">
+                            <input type="submit" value="Change Queto" style="  border-left:
+                                  none;border-top-left-radius:0;border-bottom-left-radius: 0;"></input>
+                        </div>
+                    </div>
+
+                </form>
+                <h1 id="queto" class="ml3" style="font-size: 48px;"> Finish What
+                    You Start</h1>
+
+
+            </div>
+            <div id="spotify" style="  width: 100%;   display: none; flex-direction: column; align-items: center;">
+
+                <iframe style="border-radius:12px; "
+                    src="https://open.spotify.com/embed/playlist/37i9dQZF1DX720GaRlTmKS?utm_source=generator&theme=0"
+                    width="90%" height="352" frameBorder="0" allowfullscreen=""
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy"></iframe>
+
+            </div>
+        </div>
+    </div>
+    <div id="cf">
+
         <img class=" zero" src="images/wallpaperflare.com_wallpaper.jpg" />
         <img class="one" src="images/wallpaperflare.com_wallpaper (1).jpg" />
         <img class="two" src="images/wallpaperflare.com_wallpaper (2).jpg" />

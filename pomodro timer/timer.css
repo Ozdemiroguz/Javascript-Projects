@@ -22,9 +22,11 @@ body {
     margin: 0;
     padding: 0;
     border: none;
+    /* From https://css.glass */
 }
 
 #cf img {
+
     margin: 0;
     position: absolute;
     left: 0;
@@ -133,6 +135,15 @@ body {
     animation-direction: alternate;
 }
 
+button {
+    border: none;
+    background-color: transparent;
+}
+
+button:focus {
+    outline: none;
+}
+
 .main {
     left: 5%;
     top: 20%;
@@ -156,6 +167,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 450px;
 }
 
 .timeType {
@@ -310,7 +322,8 @@ label:active:after {
 
 
 
-#taskForm input {
+#taskForm input,
+#quetoInputForm input {
     background-color: transparent;
     color: white;
     border-color: white;
@@ -353,6 +366,8 @@ label:active:after {
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 450px;
+
 }
 
 
