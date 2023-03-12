@@ -32,11 +32,12 @@ let tasks = document.getElementById("tasks");
 
 let motivationQueto = document.getElementById("motivationQueto");
 let taskQuetoMenu = document.getElementById("taskQuetoMenu");
+let quetoInputForm = document.getElementById("quetoInputForm")
 let spotify = document.getElementById("spotify");
 let checkButton = document.getElementById("check");
 let deleteButton = document.getElementById("delete")
 
-
+quetoInputForm.addEventListener("submit", addQueto);
 taskForm.addEventListener("submit", addTask)
 getTasks();
 setSettings();
@@ -60,6 +61,13 @@ function addTask(e) {
 
     }
 
+    e.preventDefault()
+}
+function addQueto(e) {
+    let input = e.target.children[0].children[0].value;
+    if (!input == "") {
+        document.getElementById("queto").innerText = input;
+    }
     e.preventDefault()
 }
 // Wrap every letter in a span
