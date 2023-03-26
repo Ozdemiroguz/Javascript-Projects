@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <title>Document</title>
+</head>
+
+<body>
+    <div style="width: 85%; z-index: 1;">
+        <h1 class="blakjack">
+            <img src="images/cards.png" alt="">
+            BlackJack
+        </h1>
+    </div>
+
+    <div class="table">
+        <img src="images/blakjacjback.jpeg" alt="">
+        <div class="startscreen">
+            <div style="display: flex; flex-direction: column; justify-content: center;height: 60vh;">
+                <h1>Black <img src="images/cards.png" alt="">
+                    Jack</h1>
+                <div class="startbuttons">
+                    <button> <i class='bx bx-play'></i>Play</button>
+                    <button><i class='bx bxs-cog'></i>Settings</button>
+                </div>
+            </div>
+
+            <div class="settings">
+                <i style=" font-size: 24px; position: absolute; right: 10px; top: 10px;" class='bx bx-x-circle'></i>
+                <div>
+                    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                        <p style="margin: 0 10px 0 0;">Decks:</p>
+                        <button
+                            style="margin-right: 15px; padding: 5px 15px; border-radius: 5px; color: white;background-color: blue;">1</button>
+                        <button
+                            style="opacity: 0.6; margin-right: 15px;padding: 5px 15px; border-radius: 5px; color: white;background-color: blue;">2</button>
+                        <button
+                            style="margin-right: 15px;padding: 5px 15px; border-radius: 5px; color: white;background-color: blue;">4</button>
+
+                    </div>
+                    <div style="margin-bottom:10px; display: flex; align-items: center;">
+                        <p style="margin:0 10px 3px 0;">Music Volume:</p>
+                        <i class='bx bxs-volume-low'></i>
+                        <input id="volumeInput" class="volume" type="range">
+                        <i class='bx bxs-volume-full'></i>
+                    </div>
+                    <label for="musics">
+                        Select Casino Music:</label>
+
+                    <select id="alerts">
+                        <option value="musics/JazzCasino.mp3">Casino Jazz</option>
+                        <option value="musics/EzelKumarhane.mp3">Ezel</option>
+                        <option value="musics/KurtlarVadisiTulum.mp3">Kurtlar Vadisi</option>
+
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="gamescreen">
+            <div class="deck">
+                <div class="card" id="card">
+                    <div class="content">
+                        <div class="front">
+                            <img src="images/cardback.png ">
+                        </div>
+                        <div class="back">
+                            <div style="display: flex; flex-direction: column;
+                            justify-content: start;">
+                                <p style="margin: 0 0 0 0px ;  ">7</p>
+                                <p style="margin: -15px 0 0 0;font-size: 20px; ">♥️</p>
+
+                            </div>
+                            <div>
+                                K </div>
+                            <div>
+                                <p style="margin: 0 0 0 0px ;  ">7</p>
+                                <p style="margin: -15px 0 0 0;font-size: 20px; ">♥️</p>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div id="moneyScreen">
+                <button>Deal</button>
+                <p style="font-size: 16px; margin-bottom: -10px;">Place Your Bets </p>
+                <p style="margin-bottom: -15px;">2000$</P>
+
+            </div>
+            <div class="coins" id="coins">
+                <div id="0" class="10">
+                    <img src="images/ten.png" alt="">
+                </div>
+                <div id="1" class="25">
+                    <img src="images/twentyfive.png" alt="">
+                </div>
+                <div id="2" class="100">
+                    <img src="images/hundred.png" alt="">
+                </div>
+                <div id="3" class="1000">
+                    <img src="images/thosand.png" alt="">
+                </div>
+
+
+
+
+            </div>
+        </div>
+
+
+    </div>
+    <!--<div>
+        <div class=" table">
+                <div class="bet" style="display: flex; flex-direction: column;align-items: center;">
+                    <div id="Smoney">1000</div>
+
+                    <input type="number" id="money" value="50" style="width:40px ;">
+                    <div id="bet" style="display: none;"> Bet:30$</div>
+                </div>
+
+                <button onclick="start()">Start</button>
+                <div class="dealer">
+                    <ul>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                    <ul>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                    <ul>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                    <ul>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                    <ul>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                    <ul>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                    <ul>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+
+                </div>
+
+                <div class="score" id="scoredealer">0</div>
+                <div class="endscreen" id="endscreen" style="align-items: center;">
+                    WİN!!!
+                </div>
+                <div class="slot">
+
+                    <ul>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+
+                    <ul>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                    <ul>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                    <ul>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+
+                    <ul>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+
+                </div>
+                <div class="screen">
+                    <button onclick="hit()" id="hitB" class="button">Hit</button>
+                    <div class="middle">
+                        <div class="score" id="score">0</div>
+                    </div>
+                    <button onclick="stand()" id="standB" class="button">Stand</button>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>-->
+    <script src="script.js"></script>
+</body>
+
+</html>
