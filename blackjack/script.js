@@ -13,65 +13,315 @@ const deck = [
     { type: "♣️", name: "Q", price: 10 }, { type: "♦️", name: "Q", price: 10 }, { type: "♥️", name: "Q", price: 10 }, { type: "♠️", name: "Q", price: 10 },
     { type: "♣️", name: "K", price: 10 }, { type: "♦️", name: "K", price: 10 }, { type: "♥️", name: "K", price: 10 }, { type: "♠️", name: "K", price: 10 },
 ];
+let deckarr = deck.concat(deck)
+function shuffle(deck) {
+
+    for (let i = 0; i < 500; i++) {
+        let location1 = Math.floor((Math.random() * deck.length));
+        let location2 = Math.floor((Math.random() * deck.length));
+        let tmp = deck[location1];
+        deck[location1] = deck[location2];
+        deck[location2] = tmp;
+    }
+}
+shuffle(deckarr);
+let temp;
+let dx = 450;
+screen.width < 700 ? dx = 180 : 200;
+let x = 450;
+screen.width < 700 ? x = 180 : 200;
+
+
+
+
+
 let betArray = [];
 let cardArray = [];
-
+let dealer = { score: 0, cards: [], cardN: 0, cardsTemp: [] }
 let player = [
-    { cardN: 0, cards: [], score: 0, money: 2000, bet: 0 },
-    { cardN: 0, cards: [], score: 0, money: 1000 },
-    { cardN: 0, cards: [], score: 0, money: 1000 }
+    { cardN: 0, cards: [], cardsTemp: [], score: 0, money: 2000, bet: 0 },
+    { cardN: 0, cards: [], cardsTemp: [], score: 0, money: 1000, bet: 0 },
+    { cardN: 0, cards: [], cardsTemp: [], score: 0, money: 1000, bet: 0 }
 
 ];
-let moneyScreen
-let coins = document.getElementById("coins");
 
+//elements
+
+let deckPlace = document.getElementById("deckPlace")
+let card = document.getElementById("card")
+let betScreen = document.getElementById("betScreen");
+let moneyScreen = document.getElementById("moneyScreen");
+let coins = document.getElementById("coins");
+let remainCard = document.getElementById("remainCard")
+remainCard.innerText = deckarr.length;
+
+
+//event 
 for (let index = 0; index < coins.children.length; index++) {
+
     coins.children[index].addEventListener("click", bet);
 
 }
-let temp;
+moneyScreen.children[1].addEventListener("click", clearBet);
+moneyScreen.children[0].addEventListener("click", deal);
+
 function bet(e) {
-    console.log(e.target.className);
 
     temp = e.target.children[0].cloneNode(true);
     temp.style.position = "absolute"
     e.target.appendChild(temp);
     betArray.push(temp);
-    if (e.target.className == 10) {
-        setTimeout(function () {
-            temp.style.transform = "translate(160%,-24vh)"
-        }, 10)
-        player[0].bet += parseInt(e.target.className);
+    betAdd(e.target.className)
+    coinsCheck();
+
+
+
+
+}
+function coinsCheck() {
+    if (player[0].money < 10) {
+        coins.children[0].children[0].style.display = "none"
+        coins.children[0].removeEventListener("click", bet);
+
     }
-    else if (e.target.className == 25) {
-        setTimeout(function () {
-            temp.style.transform = "translate(130%,-25vh)"
-        }, 10)
-        player[0].bet += parseInt(e.target.className);
+
+    if (player[0].money < 25) {
+        coins.children[1].children[0].style.display = "none"
+        coins.children[1].removeEventListener("click", bet);
+    }
+    if (player[0].money < 100) {
+        coins.children[2].children[0].style.display = "none"
+        coins.children[2].removeEventListener("click", bet);
+
+    }
+    if (player[0].money < 1000) {
+        coins.children[3].children[0].style.display = "none"
+        coins.children[3].removeEventListener("click", bet);
+
+    }
+}
+function clearBet() {
+    betArray.forEach(function (element) {
+        element.remove();
+    });
+    player[0].money += player[0].bet;
+    player[0].bet = 0;
+    betScreen.children[1].innerHTML = `Total Bet: ${player[0].bet}`;
+    moneyScreen.children[3].innerHTML = player[0].money + "$";
+    for (let index = 0; index < coins.children.length; index++) {
+        coins.children[index].addEventListener("click", bet);
+        coins.children[index].children[0].style.display = "block";
+
+    }
+
+}
+function deal() {
+    if (player[0].bet == 0) {
+        temp = coins.children[2].children[0].cloneNode(true);
+        temp.style.position = "absolute"
+        console.log(temp);
+        coins.children[2].appendChild(temp);
+        console.log(coins)
         betArray.push(temp);
+        betAdd('100');
+        coinsCheck();
 
     }
-    else if (e.target.className == 100) {
-        setTimeout(function () {
-            temp.style.transform = "translate(-80%,-30vh)"
-        }, 10)
-        player[0].bet += parseInt(e.target.className);
-        betArray.push(temp);
+    setTimeout(playerHit, 10)
+    setTimeout(delaerHit, 1010)
+    setTimeout(playerHit, 2020)
+    setTimeout(delaerHit, 3030)
+    moneyScreen.children[0].style.display = "none"
+    moneyScreen.children[1].style.display = "none"
+    moneyScreen.children[2].style.display = "none"
+    betScreen.children[0].style.display = "block"
+    betScreen.children[2].style.display = "block"
 
+    betScreen.children[0].addEventListener("click", playerHit)
+    betScreen.children[2].addEventListener("click", delaerHit)
+
+
+
+
+}
+function delaerHit() {
+    let xtemp;
+    let y;
+    screen.width < 700 ? y = -20 : y = -10;
+
+
+
+    let dtemp;
+    dtemp = card.cloneNode(true);
+    cardArray.push(dtemp);
+
+    deckPlace.appendChild(dtemp);
+    //fill card
+    dtemp.children[0].children[1].children[1].innerHTML = deckarr[0].name;
+    dtemp.children[0].children[1].children[0].children[0].innerHTML = deckarr[0].name;
+    dtemp.children[0].children[1].children[2].children[0].innerHTML = deckarr[0].name;
+    dtemp.children[0].children[1].children[0].children[1].innerHTML = deckarr[0].type;
+    dtemp.children[0].children[1].children[2].children[1].innerHTML = deckarr[0].type;
+    if (deckarr[0].type == "♦️" || deckarr[0].type == "♥️") {
+        temp.style.color = "red";
     }
-    else {
-        setTimeout(function () {
-            temp.style.transform = "translate(-120%,-31vh)"
-        }, 10)
-        player[0].bet += parseInt(e.target.className);
-        betArray.push(temp);
+    dealer.cardN++;
+    dealer.cardsTemp.push(dtemp);
+    dealer.cards.push(deckarr[0].price);
+    console.log("ol artık")
+    setTimeout(function () {
+        if (dealer.cardN > 1) {
+            dtemp.style.transform = `translate(${dx + 36}%,${y}vh)`
+            dtemp.children[0].style.transform = "rotateY(180deg)"
+            dx += 36;
 
+        }
+        else {
+            dtemp.style.transform = `translate(${dx}%,${y}vh)`
+            dtemp.children[0].style.transform = "rotateY(180deg)"
+            console.log(x)
+        }
+
+
+
+    }, 10);
+    setTimeout(function () {
+        for (i = dealer.cardsTemp.length; i > 0; i--) {
+            if (i == dealer.cardsTemp.length) {
+                dx -= 18;
+                console.log(x)
+                console.log(i)
+
+                xtemp = dx;
+                dealer.cardsTemp[i - 1].style.transform = `translate(${xtemp}%,${y}vh)`
+
+            }
+            else {
+                console.log(i)
+
+                dealer.cardsTemp[i - 1].style.transform = `translate(${xtemp - 32}%,${y}vh)`
+                xtemp -= 36;
+                console.log(xtemp)
+
+
+            }
+        }
+    }, 1030)
+    deckarr.shift();
+    remainCard.innerText = deckarr.length;
+}
+
+
+
+function playerHit() {
+    let ptemp;
+    let y = 17;
+    screen.width < 700 ? y = 15 : y = 17;
+
+    let xtemp;
+    cardArray.push(ptemp);
+    ptemp = card.cloneNode(true);
+    deckPlace.appendChild(ptemp);
+
+    //fill card
+
+    ptemp.children[0].children[1].children[1].innerHTML = deckarr[0].name;
+    ptemp.children[0].children[1].children[0].children[0].innerHTML = deckarr[0].name;
+    ptemp.children[0].children[1].children[2].children[0].innerHTML = deckarr[0].name;
+    ptemp.children[0].children[1].children[0].children[1].innerHTML = deckarr[0].type;
+    ptemp.children[0].children[1].children[2].children[1].innerHTML = deckarr[0].type;
+    if (deckarr[0].type == "♦️" || deckarr[0].type == "♥️") {
+        ptemp.style.color = "red";
     }
 
-    console.log(temp);
+    player[0].cards.push(deckarr[0].price);
+    player[0].cardsTemp.push(ptemp);
+    player[0].cardN++;
+
+    setTimeout(function () {
+        if (player[0].cardN > 1) {
+            ptemp.style.transform = `translate(${x + 36}%,${y}vh)`
+            ptemp.children[0].style.transform = "rotateY(180deg)"
+            x += 36;
+            console.log(x)
+
+        }
+        else {
+            ptemp.style.transform = `translate(${x}%,${y}vh)`
+            ptemp.children[0].style.transform = "rotateY(180deg)"
+            console.log(x)
+        }
+
+
+
+    }, 10);
+    setTimeout(function () {
+        for (i = player[0].cardsTemp.length; i > 0; i--) {
+            if (i == player[0].cardsTemp.length) {
+                x -= 18;
+                console.log(x)
+                console.log(i)
+
+                xtemp = x;
+                player[0].cardsTemp[i - 1].style.transform = `translate(${xtemp}%,${y}vh)`
+
+            }
+            else {
+                console.log(i)
+
+                player[0].cardsTemp[i - 1].style.transform = `translate(${xtemp - 36}%,${y}vh)`
+                xtemp -= 36;
+                console.log(xtemp)
+
+
+            }
+        }
+    }, 1020)
+
+
+
+    deckarr.shift()
+    remainCard.innerText = deckarr.length;
 
 }
 
+function betAdd(betPrice) {
+
+    console.log(betPrice)
+    console.log("betAdd");
+    if (betPrice == '10') {
+        console.log(betPrice)
+
+        setTimeout(function () {
+            temp.style.transform = "translate(160%,-23vh)"
+        }, 10)
+
+    }
+    else if (betPrice == '25') {
+        console.log(betPrice)
+        console.log(temp);
+        setTimeout(function () {
+            temp.style.transform = "translate(130%,-24vh)"
+        }, 10)
+
+    }
+    else if (betPrice == '100') {
+        setTimeout(function () {
+            temp.style.transform = "translate(-80%,-29vh)"
+        }, 10)
+            ;
+    }
+    else {
+        setTimeout(function () {
+            temp.style.transform = "translate(-120%,-30vh)"
+        }, 10)
+
+    }
+    player[0].bet += parseInt(betPrice);
+    player[0].money -= parseInt(betPrice);
+    betScreen.children[1].innerHTML = `Total Bet: ${player[0].bet} `;
+    moneyScreen.children[3].innerHTML = player[0].money + "$";
+}
 /*
 let player = [
     { cardN: 0, cards: [], skor: 0, money: 1000 },

@@ -63,7 +63,7 @@
             </div>
         </div>
         <div class="gamescreen">
-            <div class="deck">
+            <div class="deck" id="deckPlace">
                 <div class="card" id="card">
                     <div class="content">
                         <div class="front">
@@ -87,12 +87,26 @@
                         </div>
                     </div>
                 </div>
+                <p id="remainCard" style="color: white; position: absolute; top: 150px; left: 40px;">0</p>
+            </div>
+            <p id="dealerScore">1</p>
+            <p id="playerScore">1</p>
+            <div id="betScreen">
+
+                <button style="display: none;">Hit</button>
+                <p>Total Bet:0</p>
+                <button style="display: none;">Stand</button>
+                <button style=" display: none;">Double</button>
+
+
 
             </div>
             <div id="moneyScreen">
                 <button>Deal</button>
-                <p style="font-size: 16px; margin-bottom: -10px;">Place Your Bets </p>
-                <p style="margin-bottom: -15px;">2000$</P>
+                <button>Clear</button>
+
+                <p style="font-size: 16px; margin-bottom: -15px;">Place Your Bets </p>
+                <p style="margin-bottom: -20px;">2000$</P>
 
             </div>
             <div class="coins" id="coins">
@@ -105,7 +119,7 @@
                 <div id="2" class="100">
                     <img src="images/hundred.png" alt="">
                 </div>
-                <div id="3" class="1000">
+                <div id="3" class="1000" style="margin-right:0;">
                     <img src="images/thosand.png" alt="">
                 </div>
 

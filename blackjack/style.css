@@ -3,7 +3,8 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 
-* {
+*,
+p {
     font-family: 'Poppins', sans-serif;
     padding: 0;
     margin: 0;
@@ -124,7 +125,9 @@ i:hover {
 
 }
 
-.startbuttons button:active {
+.startbuttons button:active,
+#betScreen button:active,
+#moneyScreen button:active {
     transform: translate(5px, 5px);
     box-shadow: none;
 }
@@ -165,6 +168,7 @@ i:hover {
 }
 
 .card {
+
     position: absolute;
     border: none;
     width: 100px;
@@ -204,6 +208,8 @@ i:hover {
 }
 
 .back {
+    border: solid;
+    border-width: 1px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -236,9 +242,33 @@ i:hover {
     transform: rotate(180deg);
 }
 
+#betScreen {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    position: absolute;
+    bottom: 170px;
+    color: white;
+}
+
+#betScreen button {
+    transition: all 0.3s;
+
+    margin: 0 10px;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 5px;
+    background-color: blue;
+    font-size: 16px;
+
+}
+
+
+
 #moneyScreen {
     position: absolute;
-    bottom: 100px;
+    bottom: 80px;
     width: 100%;
     text-align: center;
     color: white;
@@ -251,6 +281,8 @@ i:hover {
     font-size: 20px;
     padding: 5px 15px;
     border-radius: 5px;
+    transition: all 0.3s;
+
 }
 
 .coins {
@@ -261,7 +293,7 @@ i:hover {
     position: absolute;
     height: 75px;
     width: 100%;
-    bottom: 20px;
+    bottom: 0px;
     backdrop-filter: blur(5px);
     background-color: rgba(0, 0, 0, 0.2);
 
@@ -281,6 +313,24 @@ i:hover {
     width: 50px;
     height: 50px;
     transition: transform 0.5s;
+
+}
+
+#playerScore {
+    position: absolute;
+    top: 49vh;
+    color: white;
+    font-size: 19px;
+    left: 49%;
+
+}
+
+#dealerScore {
+    position: absolute;
+    top: 22vh;
+    color: white;
+    font-size: 19px;
+    left: 49%;
 
 }
 
@@ -316,8 +366,8 @@ i:hover {
     }
 
     .deck {
-        top: 60px;
-        left: 30px;
+        top: 200px;
+        left: 20px;
     }
 
     .card {
